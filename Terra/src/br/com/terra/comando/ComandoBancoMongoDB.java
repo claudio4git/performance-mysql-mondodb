@@ -10,7 +10,12 @@ import br.com.terra.conexao.ConexaoMongoDB;
 import br.com.terra.estatistica.Estatistica;
 
 public class ComandoBancoMongoDB {
-	private static String COLECAO_COORDENADAS = "coordenadas";
+	private final String COLECAO_COORDENADAS = "coordenadas";
+	private Estatistica estatistica;
+	
+	public void setEstatistica(Estatistica estatistica) {
+		this.estatistica = estatistica;
+	}
 	
 	public void comandoInserir(Document documento) {
 		ConexaoMongoDB conexao = new ConexaoMongoDB();
@@ -18,7 +23,7 @@ public class ComandoBancoMongoDB {
 		
 		Instant inicio = Instant.now();
 		bancoDados.getCollection(COLECAO_COORDENADAS).insertOne(documento);
-		Estatistica.duracao(inicio, Instant.now(), documento.toString());
+		estatistica.duracaoDoComando(inicio, Instant.now());
 		
 		conexao.fecharConexao();
 	}
@@ -29,7 +34,7 @@ public class ComandoBancoMongoDB {
 		
 		Instant inicio = Instant.now();
 		bancoDados.getCollection(COLECAO_COORDENADAS).find(documento);
-		Estatistica.duracao(inicio, Instant.now(), documento.toString());
+		estatistica.duracaoDoComando(inicio, Instant.now());
 		
 		conexao.fecharConexao();
 	}

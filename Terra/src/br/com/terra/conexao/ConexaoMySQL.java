@@ -8,7 +8,7 @@ import java.util.Properties;
 public class ConexaoMySQL {
 
 	/** 
-	 * Exemplo de URL de conex„o: 
+	 * Exemplo de URL de conex√£o: 
 	 *   jdbc:mysql://localhost:3306/banco
 	 */
 	private final String URL_CONEXAO = "jdbc:mysql://%s:%s/%s";
