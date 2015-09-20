@@ -1,4 +1,4 @@
-package br.com.terra.conexao;
+package br.com.terra.configuracoes;
 
 import java.io.File;
 import java.io.FileInputStream;

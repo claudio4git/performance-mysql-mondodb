@@ -5,10 +5,12 @@ import java.util.Properties;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 
+import br.com.terra.configuracoes.Propriedades;
+
 public class ConexaoMongoDB {
 	MongoClient conexao;
 
-	public MongoDatabase getBancoDados() {
+	public synchronized MongoDatabase getBancoDados() {
 		Properties propriedades = new Propriedades().getPropriedades();
 		conexao = new MongoClient(propriedades.getProperty("mongodb.ip"), Integer.valueOf(propriedades.getProperty("mongodb.porta")));
 		MongoDatabase banco = conexao.getDatabase("terra");
@@ -16,7 +18,7 @@ public class ConexaoMongoDB {
 		return banco;
 	}
 	
-	public void fecharConexao() {
+	public synchronized void fecharConexao() {
 		conexao.close();
 	}
 }

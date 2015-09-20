@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import br.com.terra.configuracoes.Propriedades;
+
 public class ConexaoMySQL {
 
 	/** 
@@ -14,7 +16,7 @@ public class ConexaoMySQL {
 	private final String URL_CONEXAO = "jdbc:mysql://%s:%s/%s";
 	Connection conexao;
 
-	public Connection getConexao() {
+	public synchronized Connection getConexao() {
 		Properties propriedades = new Propriedades().getPropriedades();
 		
 		String xUrl = String.format(URL_CONEXAO, 
@@ -35,7 +37,7 @@ public class ConexaoMySQL {
 		return null;
 	}
 	
-	public void fecharConexao() {
+	public synchronized void fecharConexao() {
 		try {
 			conexao.close();
 		} catch (SQLException e) {
