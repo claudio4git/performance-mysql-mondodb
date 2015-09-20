@@ -76,7 +76,7 @@ public class ConsultarMySQL implements Runnable {
 		}
 		
 		System.out.println("Thread: " + id);
-		System.out.println("Dados inseridos: " + contador);
+		System.out.println("Dados consultados: " + contador);
 		System.out.println("Média segundos: " + (mediaSegundos/contador));
 		System.out.println("Média milissegundos: " + (mediaMilissegundos/contador));
 		System.out.println("Média nanosegundos: " + (mediaNanosegundos/contador));
