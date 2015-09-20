@@ -31,6 +31,8 @@ Configure o arquivo "configuracoes.properties" com os dados de conexão dos banc
 
 Por fim, execute os Launches (InserirMySQL, InserirMongoDB, ConsultarMySQL, ConsultarMongoDB) que realizarão os testes de performance. Os resultados são apresentados no console
 
+Os testes foram realizados medindo o tempo de inserção de um bloco de coordenadas (latitude e longitude) e medido também o tempo médio de uma consulta em determinada latitude e longitude.
+
 ### Resultado dos testes
 Segue os resultados do teste que foi realizado em uma VM Debian com 2G de memória, 2 processadores e sem concorrência
 
