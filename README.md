@@ -3,8 +3,12 @@ Teste de performance entre os bancos MySQL (Relacional) e MongoDB (NoSQL) escrit
 
 ### Requisitos
 1) Banco de dados MySQL instalado
+
 2) Banco de dados MongoDB instalado
+
 3) IDE Eclipse
+
+4) Java 8
 
 ### Preparando o ambiente MySQL
 Execute os comandos abaixo no servidor MySQL
